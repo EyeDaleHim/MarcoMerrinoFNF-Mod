@@ -285,6 +285,24 @@ class Character extends FlxSprite
 				flipX = true;
 				antialiasing = FlxG.save.data.antialiasing;
 
+			case 'marco':
+				tex = Paths.getSparrowAtlas('marco');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle', 24, false);
+				animation.addByPrefix('singLEFT', 'note left', 24, false);
+				animation.addByPrefix('singRIGHT', 'note right', 24, false);
+				animation.addByPrefix('singUP', 'note up', 24, false);
+				animation.addByPrefix('singDOWN', 'note down', 24, false);
+
+				addOffset('idle', -15);
+				addOffset("singUP", -109, 27);
+				addOffset("singRIGHT", 102, -7);
+				addOffset("singLEFT", 202, -6);
+				addOffset("singDOWN", -10, -50);
+
+				playAnim('idle');
+				antialiasing = FlxG.save.data.antialiasing;
+
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('BOYFRIEND');
 				frames = tex;

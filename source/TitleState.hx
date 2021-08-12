@@ -58,7 +58,10 @@ class TitleState extends MusicBeatState
 	override public function create():Void
 	{
 		PlayerSettings.init();
+		// absolutely dont ask questions
 		Settings.init();
+		// the save handler is still buggy, so keep resetti them.
+		Settings.reset('downscroll', true);
 
 		followCam = new FlxObject(FlxG.width * 0.5, FlxG.height * 0.5);
 		curWacky = FlxG.random.getObject(getIntroTextShit());

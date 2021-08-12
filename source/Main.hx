@@ -12,7 +12,7 @@ import debug.Dev;
 
 class Main extends Sprite
 {
-	public static var modName = "TeamPlatinum"; // What should be the name of your mod. Useful if you want different save datas.
+	public static var modName = "MarcoMerrino"; // What should be the name of your mod. Useful if you want different save datas.
 	
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).

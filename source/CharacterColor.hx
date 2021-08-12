@@ -39,7 +39,9 @@ class CharacterColor
                 case 'spirit':
                     color = FlxColor.RED;
                 case 'tankman':
-                    color = 0xFFCC922E;				
+                    color = 0xFFCC922E;	
+				case 'marco':
+					color = 0xFFCCCC33;		
                 default:
 					color = 0xFFFF0000;
 			}

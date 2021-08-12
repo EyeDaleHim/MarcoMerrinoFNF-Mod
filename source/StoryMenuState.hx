@@ -24,12 +24,7 @@ class StoryMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
-		['Bopeebo', 'Fresh', 'Dadbattle'],
-		['Spookeez', 'South', "Monster"],
-		['Pico', 'Philly', "Blammed"],
-		['Satin-Panties', "High", "Milf"],
-		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
-		['Senpai', 'Roses', 'Thorns']
+		['Marcovid']
 	];
 	var curDifficulty:Int = 1;
 
@@ -47,12 +42,7 @@ class StoryMenuState extends MusicBeatState
 
 	var weekNames:Array<String> = [
 		"",
-		"Daddy Dearest",
-		"Spooky Month",
-		"PICO",
-		"MOMMY MUST MURDER",
-		"RED SNOW",
-		"hating simulator ft. moawling"
+		"Subscribe to Marco Merrino",
 	];
 
 	var txtWeekTitle:FlxText;
@@ -322,9 +312,10 @@ class StoryMenuState extends MusicBeatState
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
+			
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+				FlxG.switchState(new OldNewState());
 			});
 		}
 	}

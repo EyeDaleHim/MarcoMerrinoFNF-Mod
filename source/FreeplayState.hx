@@ -6,6 +6,7 @@ import Discord.DiscordClient;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.FlxSubState;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -21,7 +22,7 @@ class FreeplayState extends MusicBeatState
 	public static var lastSelected:Int = 0;
 	
 	var songs:Array<SongMetadata> = [];
-	var difficulty:Array<Float> = [];
+	var difficulty:Array<Dynamic> = [];
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
@@ -71,24 +72,9 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		if (StoryMenuState.weekUnlocked[2] || isDebug)
-			addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
+			addWeek(['Marcovid'], 1, ['marco']);
 
-		if (StoryMenuState.weekUnlocked[2] || isDebug)
-			addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky', 'spooky', 'monster-christmas']);
-
-		if (StoryMenuState.weekUnlocked[3] || isDebug)
-			addWeek(['Pico', 'Philly', 'Blammed'], 3, ['pico']);
-
-		if (StoryMenuState.weekUnlocked[4] || isDebug)
-			addWeek(['Satin-Panties', 'High', 'Milf'], 4, ['mom']);
-
-		if (StoryMenuState.weekUnlocked[5] || isDebug)
-			addWeek(['Cocoa', 'Eggnog', 'Winter-Horrorland'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
-
-		if (StoryMenuState.weekUnlocked[6] || isDebug)
-			addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai', 'spirit']);
-
-		difficulty = [1, 3, 5, 9, 8, 12, 7, 6, 9, 11, 10, 12, 16, 11, 13, 9, 7, 14, 12];
+		difficulty = [1, 'achoo'];
 
 		// LOAD MUSIC
 
@@ -252,6 +238,8 @@ class FreeplayState extends MusicBeatState
 
 		if (accepted)
 		{
+			FlxG.switchState(new OldNewState());
+			
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 
 			trace(poop);
@@ -265,6 +253,7 @@ class FreeplayState extends MusicBeatState
 			trace('CUR WEEK' + PlayState.storyWeek);
 			trace(poop, songs[curSelected].songName.toLowerCase());
 			LoadingState.loadAndSwitchState(new PlayState());
+			
 		}
 	}
 
@@ -345,6 +334,11 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 	}
+	override function openSubState(SubState:FlxSubState)
+		{
+			
+			super.openSubState(SubState);
+		}
 }
 
 class SongMetadata

@@ -141,6 +141,7 @@ class PauseSubState extends MusicBeatSubstate
 				case "Change difficulty":
 					changeItems(1);
 				case "Exit to menu":
+					PlayState.versionSong = '-';
 					if (PlayState.isStoryMode)
 						FlxG.switchState(new StoryMenuState());
 					else if (!PlayState.isStoryMode)
